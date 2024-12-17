@@ -5,10 +5,11 @@ import (
 	"os"
 	"testing"
 
-	"github.com/fbsobreira/gotron-sdk/pkg/client"
-	"github.com/fbsobreira/gotron-sdk/pkg/proto/core"
 	"github.com/stretchr/testify/require"
 	"google.golang.org/grpc"
+
+	"github.com/fbsobreira/gotron-sdk/pkg/client"
+	"github.com/fbsobreira/gotron-sdk/pkg/proto/core"
 )
 
 var (
@@ -82,7 +83,7 @@ func TestUnfreezeV2(t *testing.T) {
 
 func TestDelegate(t *testing.T) {
 	t.Skip() // Only in testnet nile
-	tx, err := conn.DelegateResource(testnetNileAddressExample, testnetNileAddressDelegateExample, core.ResourceCode_BANDWIDTH, 1000000, false)
+	tx, err := conn.DelegateResource(testnetNileAddressExample, testnetNileAddressDelegateExample, core.ResourceCode_BANDWIDTH, 1000000, false, 0)
 
 	require.Nil(t, err)
 	require.NotNil(t, tx.GetTxid())
